@@ -2212,7 +2212,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.stop();
 
 			if (isStoryMode && curSong == 'Nonsense') {
-				FlxG.switchState(new VideoState("assets/videos/Credits/Credits_dieOP.webm", new StoryMenuState()));
+				startVideo('Credits/Credits_dieOP', true);
 			}
 			else {
 				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -2527,7 +2527,7 @@ class PlayState extends MusicBeatState
 				if (storyPlaylist.length <= 0)
 				{
 					if (curSong == 'Nonsense') {
-						FlxG.switchState(new VideoState("assets/videos/Credits/Credits_good.webm", new StoryMenuState()));
+						startVideo('Credits/Credits_good', true);
 					}
 					else
 					{
@@ -2595,30 +2595,30 @@ class PlayState extends MusicBeatState
 								LoadingState.loadAndSwitchState(new PlayState());
 							}
 							else if (accuracy > 75) {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene2.webm", new PlayState()));
+								startVideo('Cutscene2', true);
 							}
 							else {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene2_bad.webm", new PlayState()));
+								startVideo('Cutscene2_bad', true);
 							}
 						case 'context':
 							if (storyDifficulty == 3){
 								LoadingState.loadAndSwitchState(new PlayState());
 							}
 							else if (accuracy > 75) {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene3.webm", new PlayState()));
+								startVideo('Cutscene3', true);
 							}
 							else {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene3_bad.webm", new PlayState()));
+								startVideo('Cutscene3_bad', true);
 							}
 						case 'nonsense':
 							if (storyDifficulty == 3){
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/dont go here pls/oofOP.webm", new StoryMenuState()));
+								startVideo('dont go here pls/oofOP', true);
 							}
 							else if (dad.animation.curAnim.name.startsWith("absolutePAIN")) {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene4.webm", new PlayState()));
+								startVideo('Cutscene4', true);
 							}
 							else {
-								LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene4_badOP.webm", new PlayState()));
+								startVideo('Cutscene4_badOP', true);
 							}
 						default:
 							LoadingState.loadAndSwitchState(new PlayState());
@@ -4377,6 +4377,29 @@ class PlayState extends MusicBeatState
 				lightningStrikeShit();
 			}
 		}
+	}
+	
+	function startVideo(leVid:String, atEndOfSong:Bool = false) {
+	  inCutscene = true;
+	  FlxG.sound.music.stop();
+	  
+	  var video:VideoHandler = new VideoHandler();
+	  video.finishCallback = function()
+	  {
+	    if (atEndOfSong)
+	    {
+	      if (storyPlaylist.length <= 0)
+	      FlxG.switchState(new StoryMenuState());
+	      else 
+	      {
+	        SONG = Song.loadFromJson(storyPlaylist[0].toLowerCase());
+	        FlxG.switchState(new PlayState());
+	      }
+	    }
+	    else 
+	    startCountdown();
+	  }
+	  video.playVideo(Asset2File.getPath(Paths.video(name)));
 	}
 
 	var curLight:Int = 0;

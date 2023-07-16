@@ -114,6 +114,11 @@ class Paths
 	{
 		return 'assets/fonts/$key';
 	}
+	
+	inline static public function video(key:String)
+	{
+	  return 'assets/videos/$key.mp4';
+	}
 
 	inline static public function getSparrowAtlas(key:String, ?library:String)
 	{

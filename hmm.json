@@ -43,10 +43,10 @@
       "type": "haxelib"
     },
     {
-      "name": "extension-webm",
+      "name": "hxCodec",
       "type": "git",
-      "ref": "master",
-      "url": "https://github.com/Sirox228/extension-webm"
+      "ref": "main",
+      "url": "https://github.com/SPLCoding/hxCodec-but-it-works-xd"
     },
     {
       "name": "linc_luajit",
