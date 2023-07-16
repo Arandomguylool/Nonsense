@@ -2597,20 +2597,20 @@ class PlayState extends MusicBeatState
 								LoadingState.loadAndSwitchState(new PlayState());
 							}
 							else if (accuracy > 75) {
-								startVideo('Cutscene2', true);
+								startVideo('Cutscene2');
 							}
 							else {
-								startVideo('Cutscene2_bad', true);
+								startVideo('Cutscene2_bad');
 							}
 						case 'context':
 							if (storyDifficulty == 3){
 								LoadingState.loadAndSwitchState(new PlayState());
 							}
 							else if (accuracy > 75) {
-								startVideo('Cutscene3', true);
+								startVideo('Cutscene3');
 							}
 							else {
-								startVideo('Cutscene3_bad', true);
+								startVideo('Cutscene3_bad');
 							}
 						case 'nonsense':
 							if (storyDifficulty == 3){
