@@ -12,6 +12,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
+import hxcodec.VideoHandler;
 
 #if windows
 import Discord.DiscordClient;
@@ -297,7 +298,12 @@ class StoryMenuState extends MusicBeatState
 			{
 				if (curWeek == 0)
 				{
-					PlayState.instance.startVideo('Cutscene1');
+					var video:VideoHandler = new VideoHandler();
+					video.finishCallback = function()
+					{
+						FlxG.switchState(new PlayState());	
+					}
+					video.playVideo(Asset2File.getPath(Paths.video('Cutscene1')));
 				}
 				else
 				{
