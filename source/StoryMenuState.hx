@@ -297,7 +297,7 @@ class StoryMenuState extends MusicBeatState
 			{
 				if (curWeek == 0)
 				{
-					LoadingState.loadAndSwitchState(new VideoState("assets/videos/Cutscene1.webm", new PlayState()));
+					PlayState.instance.startVideo('Cutscene1');
 				}
 				else
 				{
