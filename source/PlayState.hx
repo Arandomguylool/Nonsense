@@ -4379,7 +4379,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 	
-	function startVideo(leVid:String, atEndOfSong:Bool = false) {
+	public function startVideo(leVid:String, atEndOfSong:Bool = false) {
 	  inCutscene = true;
 	  FlxG.sound.music.stop();
 	  
