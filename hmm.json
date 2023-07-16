@@ -39,6 +39,10 @@
       "type": "haxelib"
     },
     {
+      "name": "actuate",
+      "type": "haxelib"
+    },
+    {
       "name": "extension-webm",
       "type": "git",
       "ref": "master",
