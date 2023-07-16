@@ -1,4 +1,4 @@
-package;
+package hxcodec;
 
 import flixel.FlxG;
 import openfl.Lib;
