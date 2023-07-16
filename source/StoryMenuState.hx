@@ -297,7 +297,12 @@ class StoryMenuState extends MusicBeatState
 			{
 				if (curWeek == 0)
 				{
-					PlayState.instance.startVideo('Cutscene1');
+					var video:VideoHandler = new VideoHandler();
+					video.finishCallback = function()
+					{
+						FlxG.switchState(new PlayState());
+					}
+					video.playVideo(Asset2File.getPath(Paths.video('Cutscene1')));
 				}
 				else
 				{
