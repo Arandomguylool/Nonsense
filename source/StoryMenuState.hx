@@ -301,7 +301,7 @@ class StoryMenuState extends MusicBeatState
 					var video:VideoHandler = new VideoHandler();
 					video.finishCallback = function()
 					{
-						FlxG.switchState(new PlayState());	
+						LoadingState.loadAndSwitchState(new PlayState(), true);	
 					}
 					video.playVideo(Asset2File.getPath(Paths.video('Cutscene1')));
 				}
