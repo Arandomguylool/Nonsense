@@ -62,6 +62,8 @@ import Sys;
 import sys.FileSystem;
 #end
 
+import hxcodec.VideoHandler as MP4Handler;
+
 using StringTools;
 
 class PlayState extends MusicBeatState
@@ -4383,7 +4385,7 @@ class PlayState extends MusicBeatState
 	  inCutscene = true;
 	  FlxG.sound.music.stop();
 	  
-	  var video:VideoHandler = new VideoHandler();
+	  var video:MP4Handler = new MP4Handler();
 	  video.finishCallback = function()
 	  {
 	    if (atEndOfSong)
