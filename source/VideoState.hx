@@ -195,14 +195,14 @@ class VideoState extends MusicBeatState
 			}
 		}
 		
-		if (#if mobile || justTouched #end controls.ACCEPT || GlobalVideo.get().ended || GlobalVideo.get().stopped)
+		if (#if mobile justTouched || #end controls.ACCEPT || GlobalVideo.get().ended || GlobalVideo.get().stopped)
 		{
 			txt.visible = false;
 			GlobalVideo.get().hide();
 			GlobalVideo.get().stop();
 		}
 		
-		if (#if mobile || justTouched #end controls.ACCEPT || GlobalVideo.get().ended)
+		if (#if mobile justTouched || #end controls.ACCEPT || GlobalVideo.get().ended)
 		{
 			notDone = false;
 			FlxG.sound.music.volume = fuckingVolume;
