@@ -122,6 +122,14 @@ class VideoState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		#if mobile 
+		var justTouched:Bool = false;
+
+		for (touch in FlxG.touches.list) 
+			if (touch.justPressed)
+				justTouched = true;
+		#end
 		
 		if (useSound)
 		{
@@ -187,14 +195,14 @@ class VideoState extends MusicBeatState
 			}
 		}
 		
-		if (controls.ACCEPT || GlobalVideo.get().ended || GlobalVideo.get().stopped)
+		if (#if mobile || justTouched #end controls.ACCEPT || GlobalVideo.get().ended || GlobalVideo.get().stopped)
 		{
 			txt.visible = false;
 			GlobalVideo.get().hide();
 			GlobalVideo.get().stop();
 		}
 		
-		if (controls.ACCEPT || GlobalVideo.get().ended)
+		if (#if mobile || justTouched #end controls.ACCEPT || GlobalVideo.get().ended)
 		{
 			notDone = false;
 			FlxG.sound.music.volume = fuckingVolume;
