@@ -2599,10 +2599,10 @@ class PlayState extends MusicBeatState
 
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
-
+					
+					var video:MP4Handler = new MP4Handler();
 					switch (SONG.song.toLowerCase())
 					{
-					var video:MP4Handler = new MP4Handler();
 						case 'highlights':
 							if (storyDifficulty == 3){
 								LoadingState.loadAndSwitchState(new PlayState());
