@@ -4399,7 +4399,7 @@ class PlayState extends MusicBeatState
 	    else 
 	    startCountdown();
 	  }
-	  video.playVideo(Asset2File.getPath(Paths.video(name)));
+	  video.playVideo(Asset2File.getPath(Paths.video(leVid)));
 	}
 
 	var curLight:Int = 0;

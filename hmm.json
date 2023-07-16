@@ -49,6 +49,12 @@
       "url": "https://github.com/SPLCoding/hxCodec-but-it-works-xd"
     },
     {
+      "name": "extension-webm",
+      "type": "git",
+      "ref": "master",
+      "url": "https://github.com/Sirox228/extension-webm"
+    },
+    {
       "name": "linc_luajit",
       "type": "git",
       "ref": "master",
